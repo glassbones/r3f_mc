@@ -17,7 +17,11 @@ export default function Model(props) {
 
   const handleOpen =()=> {
     props.setIsOpen(!props.isOpen)
-    !props.isOpen ? openChestSound.play() : closeChestSound.play()
+    openChestSound.volume = 0.3
+    closeChestSound.volume = 0.3
+    !props.isOpen 
+    ? openChestSound.play() 
+    : closeChestSound.play()
   }
   const chestAnimation = useSpring({
     rotation: props.isOpen ? [0,0,0] : [1.61,0,0],
